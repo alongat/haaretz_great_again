@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "הארץ שלי",
+  "description": "התוסף מנקה את האתר של הארץ, מתכנים של כותבים מעצבנים",
+  "version": "0.1",
+  "icons": { "48":  "icon48.png",
+             "128": "icon128.png" },
+  "browser_action": {
+    "default_icon": "icon128.png",
+    "default_popup": "options.html"
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["http://*.haaretz.co.il/*"],
+      "js": ["jquery-2.2.0.min.js", "haaretz_cleaner.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "http://*.haaretz.co.il/"
+  ]
+}
